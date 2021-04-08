@@ -1,4 +1,4 @@
-{namespace k=Neos\Kickstarter\ViewHelpers}<?php
+{namespace k=Codeminds\FlowKickstarter\ViewHelpers}<?php
 namespace {packageNamespace}<f:if condition="{isInSubpackage}">\{subpackage}</f:if>\Controller;
 
 /*
@@ -8,6 +8,7 @@ namespace {packageNamespace}<f:if condition="{isInSubpackage}">\{subpackage}</f:
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
 use {modelFullClassName -> k:format.ltrim(charlist: '\')};
+use {repositoryFullClassName -> k:format.ltrim(charlist: '\')};
 
 class {controllerClassName} extends ActionController
 {
@@ -21,13 +22,13 @@ class {controllerClassName} extends ActionController
     /**
      * @return void
      */
-    public function indexAction()
+    public function indexAction() : void
     {
         $this->view->assign('{modelName -> k:inflect.pluralize()}', $this->{modelName}Repository->findAll());
     }
 
     /**
-     * @param {modelFullClassName} ${modelName}
+     * @param {modelClassName} ${modelName}
      * @return void
      */
     public function showAction({modelClassName} ${modelName})
@@ -38,35 +39,35 @@ class {controllerClassName} extends ActionController
     /**
      * @return void
      */
-    public function newAction()
+    public function newAction() : void
     <![CDATA[{
     }]]>
 
     /**
-     * @param {modelFullClassName} $new{modelName -> k:format.ucfirst()}
+     * @param {modelClassName} ${modelName -> k:format.ucfirst()}
      * @return void
      */
-    public function createAction({modelClassName} $new{modelName -> k:format.ucfirst()})
+    public function createAction({modelClassName} ${modelName}) : void
     {
-        $this->{modelName}Repository->add($new{modelName -> k:format.ucfirst()});
+        $this->{modelName}Repository->add(${modelName});
         $this->addFlashMessage('Created a new {modelName -> k:inflect.humanizeCamelCase(lowercase: true)}.');
         $this->redirect('index');
     }
 
     /**
-     * @param {modelFullClassName} ${modelName}
+     * @param {modelClassName} ${modelName}
      * @return void
      */
-    public function editAction({modelClassName} ${modelName})
+    public function editAction({modelClassName} ${modelName}) : void
     {
         $this->view->assign('{modelName}', ${modelName});
     }
 
     /**
-     * @param {modelFullClassName} ${modelName}
+     * @param {modelClassName} ${modelName}
      * @return void
      */
-    public function updateAction({modelClassName} ${modelName})
+    public function updateAction({modelClassName} ${modelName}) : void
     {
         $this->{modelName}Repository->update(${modelName});
         $this->addFlashMessage('Updated the {modelName -> k:inflect.humanizeCamelCase(lowercase: true)}.');
@@ -74,10 +75,10 @@ class {controllerClassName} extends ActionController
     }
 
     /**
-     * @param {modelFullClassName} ${modelName}
+     * @param {modelClassName} ${modelName}
      * @return void
      */
-    public function deleteAction({modelClassName} ${modelName})
+    public function deleteAction({modelClassName} ${modelName}) : void
     {
         $this->{modelName}Repository->remove(${modelName});
         $this->addFlashMessage('Deleted a {modelName -> k:inflect.humanizeCamelCase(lowercase: true)}.');

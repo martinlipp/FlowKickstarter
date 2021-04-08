@@ -1,5 +1,5 @@
 <?php
-namespace Neos\Kickstarter\ViewHelpers\Inflect;
+namespace Codeminds\FlowKickstarter\ViewHelpers\Inflect;
 
 /*
  * This file is part of the Neos.Kickstarter package.
@@ -30,7 +30,7 @@ use Neos\FluidAdaptor\Core\ViewHelper\AbstractViewHelper;
 class HumanizeCamelCaseViewHelper extends AbstractViewHelper
 {
     /**
-     * @var \Neos\Kickstarter\Utility\Inflector
+     * @var \Codeminds\FlowKickstarter\Utility\Inflector
      * @Flow\Inject
      */
     protected $inflector;

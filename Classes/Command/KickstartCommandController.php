@@ -1,8 +1,8 @@
 <?php
-namespace Neos\Kickstarter\Command;
+namespace Codeminds\FlowKickstarter\Command;
 
 /*
- * This file is part of the Neos.Kickstarter package.
+ * This file is part of the codeminds.flowkickstarter package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -17,7 +17,7 @@ use Neos\Flow\Package\PackageManager;
 use Neos\Utility\Arrays;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Cli\CommandController;
-use Neos\Kickstarter\Utility\Validation;
+use Codeminds\FlowKickstarter\Utility\Validation;
 
 /**
  * Command controller for the Kickstart generator
@@ -33,7 +33,7 @@ class KickstartCommandController extends CommandController
 
     /**
      * @Flow\Inject
-     * @var \Neos\Kickstarter\Service\GeneratorService
+     * @var \Codeminds\FlowKickstarter\Service\GeneratorService
      */
     protected $generatorService;
 
@@ -99,7 +99,7 @@ class KickstartCommandController extends CommandController
      * @param boolean $generateRelated Also create the mentioned package, related model and repository if neccessary.
      * @param boolean $force Overwrite any existing controller or template code. Regardless of this flag, the package, model and repository will never be overwritten.
      * @return string
-     * @see neos.kickstarter:kickstart:commandcontroller
+     * @see codeminds.flowkickstarter:kickstart:commandcontroller
      */
     public function actionControllerCommand($packageKey, $controllerName, $generateActions = false, $generateTemplates = true, $generateRelated = false, $force = false)
     {
@@ -183,7 +183,7 @@ class KickstartCommandController extends CommandController
      * @param string $controllerName The name for the new controller. This may also be a comma separated list of controller names.
      * @param boolean $force Overwrite any existing controller.
      * @return string
-     * @see neos.kickstarter:kickstart:actioncontroller
+     * @see codeminds.flowkickstarter:kickstart:actioncontroller
      */
     public function commandControllerCommand($packageKey, $controllerName, $force = false)
     {
@@ -211,7 +211,7 @@ class KickstartCommandController extends CommandController
      * @param string $modelName The name of the new domain model class
      * @param boolean $force Overwrite any existing model.
      * @return string
-     * @see neos.kickstarter:kickstart:repository
+     * @see codeminds.flowkickstarter:kickstart:repository
      */
     public function modelCommand($packageKey, $modelName, $force = false)
     {
@@ -254,7 +254,7 @@ class KickstartCommandController extends CommandController
      * @param string $modelName The name of the domain model class
      * @param boolean $force Overwrite any existing repository.
      * @return string
-     * @see neos.kickstarter:kickstart:model
+     * @see codeminds.flowkickstarter:kickstart:model
      */
     public function repositoryCommand($packageKey, $modelName, $force = false)
     {

@@ -1,4 +1,4 @@
-{namespace k=Neos\Kickstarter\ViewHelpers}<?php
+{namespace k=Codeminds\FlowKickstarter\ViewHelpers}<?php
 namespace {namespace};
 
 /*
@@ -23,7 +23,7 @@ class {modelName}
     /**
      * @return {fieldDefinition.type -> f:format.raw()}
      */
-    public function get{fieldName -> k:format.ucfirst()}()
+    public function get{fieldName -> k:format.ucfirst()}() : {fieldDefinition.type -> f:format.raw()}
     {
         return $this->{fieldName};
     }
@@ -32,8 +32,9 @@ class {modelName}
      * @param {fieldDefinition.type -> f:format.raw()} ${fieldName}
      * @return void
      */
-    public function set{fieldName -> k:format.ucfirst()}(<f:if condition="{fieldDefinition.typeHint}">{fieldDefinition.typeHint -> f:format.raw()} </f:if>${fieldName})
+    public function set{fieldName -> k:format.ucfirst()}(<f:if condition="{fieldDefinition.typeHint}"><f:then>{fieldDefinition.typeHint -> f:format.raw()}</f:then><f:else>{fieldDefinition.type -> f:format.raw()}</f:else></f:if> ${fieldName})
     {
         $this->{fieldName} = ${fieldName};
-    }</f:for>
+    }
+</f:for>
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Neos\Kickstarter\ViewHelpers\Format;
+namespace Codeminds\FlowKickstarter\ViewHelpers\Format;
 
 /*
  * This file is part of the Neos.Kickstarter package.

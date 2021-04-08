@@ -1,5 +1,5 @@
 <?php
-namespace Neos\Kickstarter\ViewHelpers\Inflect;
+namespace Codeminds\FlowKickstarter\ViewHelpers\Inflect;
 
 /*
  * This file is part of the Neos.Kickstarter package.
@@ -29,7 +29,7 @@ use Neos\Flow\Annotations as Flow;
 class PluralizeViewHelper extends \Neos\FluidAdaptor\Core\ViewHelper\AbstractViewHelper
 {
     /**
-     * @var \Neos\Kickstarter\Utility\Inflector
+     * @var \Codeminds\FlowKickstarter\Utility\Inflector
      * @Flow\Inject
      */
     protected $inflector;

@@ -1,5 +1,5 @@
 <?php
-namespace Neos\Kickstarter\Utility;
+namespace Codeminds\FlowKickstarter\Utility;
 
 /*
  * This file is part of the Neos.Kickstarter package.

@@ -29,7 +29,7 @@
 //   Added rule for potato -> potatoes
 //   Added rule for *us -> *uses
 
-class Sho_Inflect
+class Sho_Inflect_Codeminds
 {
     public static $plural = array(
         '/(quiz)$/i'               => "$1zes",

@@ -1,5 +1,5 @@
 <?php
-namespace Neos\Kickstarter\Tests\Unit\Utility;
+namespace Codeminds\FlowKickstarter\Tests\Unit\Utility;
 
 /*
  * This file is part of the Neos.Kickstarter package.
@@ -24,7 +24,7 @@ class InflectorTest extends \Neos\Flow\Tests\UnitTestCase
      */
     public function humanizeCamelCaseConvertsCamelCaseToSpacesAndUppercasesFirstWord()
     {
-        $inflector = new \Neos\Kickstarter\Utility\Inflector();
+        $inflector = new \Codeminds\FlowKickstarter\Utility\Inflector();
         $humanized = $inflector->humanizeCamelCase('BlogAuthor');
         self::assertEquals('Blog author', $humanized);
     }
@@ -34,7 +34,7 @@ class InflectorTest extends \Neos\Flow\Tests\UnitTestCase
      */
     public function pluralizePluralizesWords()
     {
-        $inflector = new \Neos\Kickstarter\Utility\Inflector();
+        $inflector = new \Codeminds\FlowKickstarter\Utility\Inflector();
         self::assertEquals('boxes', $inflector->pluralize('box'));
         self::assertEquals('foos', $inflector->pluralize('foo'));
     }

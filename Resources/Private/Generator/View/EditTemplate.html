@@ -1,18 +1,20 @@
-{namespace k=Neos\Kickstarter\ViewHelpers}<![CDATA[<f:layout name="Default" />
+{namespace k=Codeminds\FlowKickstarter\ViewHelpers}<![CDATA[<f:layout name="Default" />
 
 <f:section name="Title">]]>Edit {modelName -> k:inflect.humanizeCamelCase(lowercase: true)} "<![CDATA[{]]>{modelName}<![CDATA[.name}]]>"<![CDATA[</f:section>
 
 <f:section name="Content">]]>
-    <![CDATA[<f:form action="update" object="{]]>{modelName}<![CDATA[}]]>" objectName="{modelName}">
-        <ol><f:for each="{properties}" as="property" key="propertyName">
-            <li>
-                <label for="{propertyName}">{propertyName -> k:inflect.humanizeCamelCase()}</label>
-                <f:if condition="{0: property.type} == {0: 'DateTime'}"><f:then><![CDATA[<f:form.textfield]]> type="datetime" value="<![CDATA[{]]>{modelName}.{propertyName}<![CDATA[ -> f:format.date(format: 'Y-m-d\TH:i:sP')}]]>" property="{propertyName}" id="{propertyName}" /></f:then><f:else><![CDATA[<f:form.textfield]]> property="{propertyName}" id="{propertyName}" /></f:else></f:if>
-            </li>
-        </f:for>
-            <li>
-                <![CDATA[<f:form.submit value="Update" />
-            </li>
-        </ol>
-    </f:form>]]>
+    <![CDATA[<f:form action="update" object="{]]>{modelName}<![CDATA[}]]>" objectName="{modelName}" class="needs-validation is-update-form" additionalAttributes="<![CDATA[{novalidate: 1}]]>">
+    <f:for each="{properties}" as="property" key="propertyName">
+        <div>
+            <label for="{propertyName}" class="form-label">{propertyName -> k:inflect.humanizeCamelCase()}</label>
+            <![CDATA[<f:form.textfield]]> property="{propertyName}" id="{propertyName}" class="form-control" errorClass="is-invalid" />
+            <![CDATA[<f:render partial="ValidationResult" arguments="{property: ]]>'{propertyName}'<![CDATA[}]]>" />
+        </div>
+    </f:for>
+        <div>
+            <button type="submit" class="btn btn-primary btn-lg" disabled="1"><i class="fas fa-save"></i> Jetzt speichern</button>
+            <div class="form-text is-unchanged">Keine Änderungen vorhanden.</div>
+            <div class="form-text text-success has-changes"><i class="fas fa-check-circle"></i> Änderungen vorhanden.</div>
+        </div>
+    <![CDATA[</f:form>]]>
 <![CDATA[</f:section>]]>
